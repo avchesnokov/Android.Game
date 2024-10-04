@@ -29,11 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
         });
         ImageView PlayButton = findViewById(R.id.PlayButton);
-        Button button2 = findViewById(R.id.test);
         PlayButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, SecondActivity.class);
             startActivity(intent);
-            button2.setVisibility(View.GONE);
             });
 
     }

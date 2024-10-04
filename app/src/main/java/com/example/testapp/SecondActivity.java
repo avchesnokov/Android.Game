@@ -3,7 +3,6 @@ package com.example.testapp;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.opengl.Visibility;
 import android.os.Bundle;
 //import android.os.CountDownTimer;
 import android.view.View;
@@ -18,36 +17,45 @@ public class SecondActivity extends AppCompatActivity {
     boolean menu = false;
     Tester tester = null;
     boolean warriorAttacks = false;
+    boolean witchAttacks = false;
+    boolean shamanAttacks = false;
     boolean warrior_check = true;
-    boolean archer_check = true;
+    boolean shaman_check = true;
     boolean witch_check = true;
     boolean enemy_check = true;
 
 
-
-    Button menu_main ;
-    Button settings ;
-    ImageView character2 ;
-    Button character3 ;
-    ImageView SwordSlash ;
-    TextView SwordSlashText ;
-    ImageView shield ;
-    TextView shieldText ;
-    Button attack3 ;
-    Button attack4 ;
-    Button attack5 ;
-    Button attack6 ;
-    ImageView Warrior ;
-    ProgressBar manaBar ;
-    ProgressBar warriorHp ;
+    ImageView ManaSurge;
+    Button menu_main;
+    Button settings;
+    ImageView Witch;
+    ImageView Shaman;
+    ImageView SwordSlash;
+    TextView SwordSlashText;
+    ImageView shield;
+    TextView shieldText;
+    ImageView WeaknessPotion;
+    TextView WeaknessPotionText;
+    TextView ManaSurgeText;
+    ImageView PoisonArrow;
+    TextView PoisonArrowText;
+    ImageView VenomExtract;
+    TextView VenomExtractText;
+    Button attack6;
+    ImageView Warrior;
+    ProgressBar manaBar;
+    ProgressBar warriorHp;
     ProgressBar witchHp;
-    ProgressBar shamanHp ;
-    ProgressBar enemyHp ;
-    TextView manaCounter ;
+    ProgressBar shamanHp;
+    ProgressBar enemyHp;
+    TextView manaCounter;
     CountDownTimerExt gameTimer;
-    ImageView backgroundMenu ;
-
-
+    ImageView backgroundMenu;
+    ImageView SwordSlashCooldown;
+    TextView SwordSlashCooldownText;
+    ImageView YouWin;
+    ImageView YouLose;
+    ImageView Paused;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,31 +63,61 @@ public class SecondActivity extends AppCompatActivity {
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         Enemy enemy = new Enemy("Death Ward",900,60);
         tester = new Tester(enemy,
-                new Warrior("Warrior", 210, 35),
+                new Warrior("Warrior", 255, 35),
                 new Witch("Witch", 175, 40, enemy),
-                new Shaman("Shaman", 185, 55, enemy));
+                new Shaman("Shaman", 200, 55, enemy));
         enemy.setTester(tester);
-        gameTimer = new CountDownTimerExt(Integer.MAX_VALUE, 100, true) {
+        gameTimer = new CountDownTimerExt(Integer.MAX_VALUE, 50, true) {
 
             @SuppressLint("SetTextI18n")
             @Override
             public void onTick(long millisUntilFinished) {
-                    manaBar.setProgress(MyUnit.mana);
-                    manaCounter.setText(MyUnit.mana + " mana");
+                manaBar.setProgress(MyUnit.mana);
+                manaCounter.setText(MyUnit.mana + " mana");
 
-                    shamanHp.setProgress(tester.shaman.health);
-                    warriorHp.setProgress(tester.warrior.health);
-                    witchHp.setProgress(tester.witch.health);
-                    enemyHp.setProgress(tester.enemy.health);
+                shamanHp.setProgress(tester.shaman.health);
+                warriorHp.setProgress(tester.warrior.health);
+                witchHp.setProgress(tester.witch.health);
+                enemyHp.setProgress(tester.enemy.health);
 
-                    warrior_check = warriorAlive();
-                    archer_check = archerAlive();
-                    witch_check = witchAlive();
-                    enemy_check = enemyAlive();
+                warrior_check = warriorAlive();
+                shaman_check = shamanAlive();
+                witch_check = witchAlive();
+                enemy_check = enemyAlive();
 
-                    if (!enemy_check || !(warrior_check || archer_check || witch_check)) {
+                    if (!warrior_check) {
+                        Warrior.setEnabled(false);
+                        SwordSlash.setVisibility(View.GONE);
+                        SwordSlashText.setVisibility(View.GONE);
+                        shield.setVisibility(View.GONE);
+                        shieldText.setVisibility(View.GONE);
+                    }
+
+                    if (!witch_check) {
+                        Witch.setEnabled(false);
+                        ManaSurge.setVisibility(View.GONE);
+                        ManaSurgeText.setVisibility(View.GONE);
+                        WeaknessPotion.setVisibility(View.GONE);
+                        WeaknessPotionText.setVisibility(View.GONE);
+                    }
+
+                    if (!shaman_check) {
+                        Shaman.setEnabled(false);
+                        PoisonArrow.setVisibility(View.GONE);
+                        PoisonArrowText.setVisibility(View.GONE);
+                        VenomExtract.setVisibility(View.GONE);
+                        VenomExtractText.setVisibility(View.GONE);
+                    }
+
+                    if (!enemy_check) {
                         gameOver();
                         settings.setEnabled(false);
+                        YouWin.setVisibility(View.VISIBLE);
+                    }
+                    if (!(warrior_check || shaman_check || witch_check)) {
+                        gameOver();
+                        settings.setEnabled(false);
+                        YouLose.setVisibility(View.VISIBLE);
                     }
             }
 
@@ -88,45 +126,52 @@ public class SecondActivity extends AppCompatActivity {
 
             }
         }.create();
-
+        YouWin = findViewById(R.id.YouWin);
+        YouLose = findViewById(R.id.YouLose);
+        Paused = findViewById(R.id.Paused);
         manaCounter = findViewById(R.id.manaCounter);
         menu_main = findViewById(R.id.btnOpenMain);
         settings = findViewById(R.id.settings);
-        character2 = findViewById(R.id.character2);
-        character3 = findViewById(R.id.character3);
+        Witch = findViewById(R.id.Witch);
+        Shaman = findViewById(R.id.Shaman);
         SwordSlash = findViewById(R.id.SwordSlash);
         SwordSlashText = findViewById(R.id.SwordSlashText);
         shield = findViewById(R.id.shield);
         shieldText = findViewById(R.id.shieldText);
-        attack3 = findViewById(R.id.attack3);
-        attack4 = findViewById(R.id.attack4);
-        attack5 = findViewById(R.id.attack5);
-        attack6 = findViewById(R.id.attack6);
+        ManaSurge = findViewById(R.id.ManaSurge);
+        ManaSurgeText = findViewById(R.id.ManaSurgeText);
+        WeaknessPotion = findViewById(R.id.WeaknessPotion);
+        WeaknessPotionText = findViewById(R.id.WeaknessPotionText);
+        PoisonArrow = findViewById(R.id.PoisonArrow);
+        VenomExtract = findViewById(R.id.VenomExtract);
+        PoisonArrowText = findViewById(R.id.PoisonArrowText);
+        VenomExtract = findViewById(R.id.VenomExtract);
+        VenomExtractText = findViewById(R.id.VenomExtractText);
         Warrior = findViewById(R.id.Warrior);
         manaBar = findViewById(R.id.manaBar);
         manaBar.setMax(MyUnit.MAX_MANA);
         warriorHp = findViewById(R.id.warriorHp);
-        warriorHp.setMax(210);
+        warriorHp.setMax(255);
         witchHp = findViewById(R.id.witchHp);
         witchHp.setMax(175);
         shamanHp = findViewById(R.id.shamanHp);
-        shamanHp.setMax(185);
+        shamanHp.setMax(200);
         enemyHp = findViewById(R.id.enemyHp);
         enemyHp.setMax(900);
         backgroundMenu = findViewById(R.id.backgroundMenu);
-        backgroundMenu.setAlpha(0.3f);
-
-
+        SwordSlashCooldown = findViewById(R.id.SwordSlashCooldown);
+        SwordSlashCooldownText = findViewById(R.id.SwordSlashCooldownText);
+        backgroundMenu.setAlpha(0.4f);
 
 
         settings.setOnClickListener(v -> {
             menu = !menu;
             if (menu) {
                 gameOver();
-                menu_main.setVisibility(View.VISIBLE);
+                Paused.setVisibility(View.VISIBLE);
             } else {
                 gameResumed();
-                menu_main.setVisibility(View.GONE);
+                Paused.setVisibility(View.GONE);
             }
             Warrior.setClickable(!menu);
         });
@@ -145,30 +190,63 @@ public class SecondActivity extends AppCompatActivity {
                SwordSlash.setVisibility(View.GONE);
                shield.setVisibility(View.GONE);
                SwordSlashText.setVisibility(View.GONE);
-               SwordSlash.setVisibility(View.GONE);
                shieldText.setVisibility(View.GONE);
            }
         });
+
+        Witch.setOnClickListener(v -> {
+            witchAttacks = !witchAttacks;
+            if (witchAttacks) {
+                ManaSurge.setVisibility(View.VISIBLE);
+                ManaSurgeText.setVisibility(View.VISIBLE);
+                WeaknessPotion.setVisibility(View.VISIBLE);
+                WeaknessPotionText.setVisibility(View.VISIBLE);
+            }
+            else {
+                ManaSurge.setVisibility(View.GONE);
+                WeaknessPotion.setVisibility(View.GONE);
+                ManaSurgeText.setVisibility(View.GONE);
+                WeaknessPotionText.setVisibility(View.GONE);
+            }
+        });
+
+        Shaman.setOnClickListener(v -> {
+            shamanAttacks = !shamanAttacks;
+            if (shamanAttacks) {
+                PoisonArrow.setVisibility(View.VISIBLE);
+                PoisonArrowText.setVisibility(View.VISIBLE);
+                VenomExtract.setVisibility(View.VISIBLE);
+                VenomExtractText.setVisibility(View.VISIBLE);
+            }
+            else {
+                PoisonArrow.setVisibility(View.GONE);
+                PoisonArrowText.setVisibility(View.GONE);
+                VenomExtract.setVisibility(View.GONE);
+                VenomExtractText.setVisibility(View.GONE);
+            }
+        });
+
         menu_main.setOnClickListener(v -> {
             Intent intent = new Intent(SecondActivity.this, MainActivity.class);
             startActivity(intent);
         });
 
-        if (warrior_check) {
-            SwordSlash.setOnClickListener(v -> tester.AttackSwitch("SwordSlash"));
-            shield.setOnClickListener(v -> tester.AttackSwitch("Shield"));
-        }
+        SwordSlash.setOnClickListener(v -> tester.AttackSwitch("SwordSlash"));
+        shield.setOnClickListener(v -> tester.AttackSwitch("Shield"));
 
-        if (witch_check) {
-            attack3.setOnClickListener(v -> tester.AttackSwitch("ManaSurge"));
-        }
+        ManaSurge.setOnClickListener(v -> tester.AttackSwitch("ManaSurge"));
+        WeaknessPotion.setOnClickListener(v -> tester.AttackSwitch("WeaknessPotion"));
+
+        PoisonArrow.setOnClickListener(v -> tester.AttackSwitch("PoisonArrow"));
+        VenomExtract.setOnClickListener(v -> tester.AttackSwitch("VenomExtract"));
+
 
 
     }
     public boolean warriorAlive(){
         return tester.warrior.health > 0;
     }
-    public boolean archerAlive(){
+    public boolean shamanAlive(){
         return tester.shaman.health > 0;
     }
     public boolean witchAlive(){
@@ -181,26 +259,41 @@ public class SecondActivity extends AppCompatActivity {
         Warrior.setEnabled(false);
         SwordSlash.setEnabled(false);
         shield.setEnabled(false);
-        character2.setEnabled(false);
-        character3.setEnabled(false);
+        Witch.setEnabled(false);
+        ManaSurge.setEnabled(false);
+        WeaknessPotion.setEnabled(false);
+        Shaman.setEnabled(false);
+        VenomExtract.setEnabled(false);
+        PoisonArrow.setEnabled(false);
         backgroundMenu.setVisibility(View.VISIBLE);
         tester.witch.manaSurgeTimer.pause();
         tester.witch.debuffTimer.pause();
         tester.warrior.shieldTimer.pause();
         tester.shaman.poisonDamageTimer.pause();
+        tester.enemy.skipFirstTick = false;
+        tester.enemy.enemyAttack.pause();
+        menu_main.setVisibility(View.VISIBLE);
         MyUnit.manaTimer.pause();
     }
     public void gameResumed(){
         Warrior.setEnabled(true);
         SwordSlash.setEnabled(true);
         shield.setEnabled(true);
-        character2.setEnabled(true);
-        character3.setEnabled(true);
+        Witch.setEnabled(true);
+        ManaSurge.setEnabled(true);
+        WeaknessPotion.setEnabled(true);
+        Shaman.setEnabled(true);
+        VenomExtract.setEnabled(true);
+        PoisonArrow.setEnabled(true);
         backgroundMenu.setVisibility(View.GONE);
         tester.witch.manaSurgeTimer.resume();
         tester.witch.debuffTimer.resume();
         tester.warrior.shieldTimer.resume();
         tester.shaman.poisonDamageTimer.resume();
+
+        tester.enemy.enemyAttack.resume();
+
+        menu_main.setVisibility(View.GONE);
         MyUnit.manaTimer.resume();
     }
 }

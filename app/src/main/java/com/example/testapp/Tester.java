@@ -28,6 +28,14 @@ public class Tester {
             case "ManaSurge":
                 witch.ManaSurge();
                 break;
+            case "WeaknessPotion":
+                witch.WeaknessPotion();
+                break;
+            case "PoisonArrow":
+                shaman.PoisonArrow();
+                break;
+            case "VenomExtract":
+                shaman.VenomExtract();
         }
     }
 }

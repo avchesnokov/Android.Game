@@ -8,6 +8,8 @@ class Unit {
 
     static boolean GamePause = false;
 
+    public boolean skipFirstTick = false;
+
     public Unit(String name, int health, int damage) {
         this.name = name;
         this.health = health;

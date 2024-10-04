@@ -38,79 +38,12 @@
         android:id="@+id/settings"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.023"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.044" />
-
-    <Button
-        android:id="@+id/character3"
-        android:layout_width="62dp"
-        android:layout_height="85dp"
-        android:text="Button"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.899"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.911" />
-
-    <Button
-        android:id="@+id/attack3"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="140dp"
-        android:text="Button"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/witchHp"
-        app:layout_constraintEnd_toEndOf="@+id/character2"
-        app:layout_constraintHorizontal_bias="0.995"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/character2"
-        app:layout_constraintVertical_bias="0.225" />
-
-    <Button
-        android:id="@+id/attack4"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:text="Button"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/character2"
-        app:layout_constraintEnd_toEndOf="@+id/character2"
-        app:layout_constraintHorizontal_bias="0.744"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/character2"
-        app:layout_constraintVertical_bias="0.792" />
-
-    <Button
-        android:id="@+id/attack5"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:text="Button"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.757"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.792" />
-
-    <Button
-        android:id="@+id/attack6"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:text="Button"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.757"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.938" />
 
     <ImageView
         android:id="@+id/SwordSlash"
@@ -170,33 +103,6 @@
         app:srcCompat="@drawable/warrior_ver4" />
 
     <ProgressBar
-        android:id="@+id/witchHp"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="120dp"
-        android:layout_height="8dp"
-        android:layout_marginTop="10dp"
-        android:progressDrawable="@drawable/linear_warrior_hp_bar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/character2"
-        app:layout_constraintHorizontal_bias="0.818"
-        app:layout_constraintStart_toStartOf="@+id/character2"
-        app:layout_constraintTop_toBottomOf="@+id/character2"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ProgressBar
-        android:id="@+id/shamanHp"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="120dp"
-        android:layout_height="8dp"
-        android:progressDrawable="@drawable/linear_warrior_hp_bar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.973"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.96" />
-
-    <ProgressBar
         android:id="@+id/enemyHp"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="120dp"
@@ -204,21 +110,36 @@
         android:progressDrawable="@drawable/linear_enemy_hp_bar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintHorizontal_bias="0.098"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.791" />
+        app:layout_constraintVertical_bias="0.846" />
 
     <ImageView
-        android:id="@+id/character2"
+        android:id="@+id/Witch"
         android:layout_width="109dp"
         android:layout_height="141dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.762"
+        app:layout_constraintHorizontal_bias="0.754"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.459"
         app:srcCompat="@drawable/witch1" />
+
+    <ProgressBar
+        android:id="@+id/witchHp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="120dp"
+        android:layout_height="8dp"
+        android:layout_marginTop="10dp"
+        android:progressDrawable="@drawable/linear_warrior_hp_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/Witch"
+        app:layout_constraintHorizontal_bias="0.818"
+        app:layout_constraintStart_toStartOf="@+id/Witch"
+        app:layout_constraintTop_toBottomOf="@+id/Witch"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/SwordSlashText"
@@ -259,6 +180,182 @@
         app:layout_constraintStart_toStartOf="@+id/shield"
         app:layout_constraintTop_toTopOf="@+id/shield" />
 
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="222dp"
+        android:layout_height="248dp"
+        app:layout_constraintBottom_toBottomOf="@+id/enemyHp"
+        app:layout_constraintEnd_toEndOf="@+id/enemyHp"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="@+id/enemyHp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.801"
+        app:srcCompat="@drawable/death_ward_test1" />
+
+    <ImageView
+        android:id="@+id/ManaSurge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/witchHp"
+        app:layout_constraintEnd_toEndOf="@+id/Witch"
+        app:layout_constraintHorizontal_bias="0.769"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/Witch"
+        app:layout_constraintVertical_bias="0.225"
+        app:srcCompat="@drawable/button_layout" />
+
+    <ImageView
+        android:id="@+id/WeaknessPotion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/Witch"
+        app:layout_constraintEnd_toEndOf="@+id/Witch"
+        app:layout_constraintHorizontal_bias="0.76"
+        app:layout_constraintStart_toStartOf="@+id/background"
+        app:layout_constraintTop_toTopOf="@+id/Witch"
+        app:layout_constraintVertical_bias="0.752"
+        app:srcCompat="@drawable/button_layout" />
+
+    <TextView
+        android:id="@+id/ManaSurgeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mana Surge"
+        android:textColor="#F6F4F4"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/ManaSurge"
+        app:layout_constraintEnd_toEndOf="@+id/ManaSurge"
+        app:layout_constraintStart_toStartOf="@+id/ManaSurge"
+        app:layout_constraintTop_toTopOf="@+id/ManaSurge" />
+
+    <TextView
+        android:id="@+id/WeaknessPotionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weakness Potion"
+        android:textColor="#F6F4F4"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/WeaknessPotion"
+        app:layout_constraintEnd_toEndOf="@+id/WeaknessPotion"
+        app:layout_constraintStart_toStartOf="@+id/WeaknessPotion"
+        app:layout_constraintTop_toTopOf="@+id/WeaknessPotion" />
+
+    <ImageView
+        android:id="@+id/Shaman"
+        android:layout_width="113dp"
+        android:layout_height="140dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.889"
+        app:srcCompat="@drawable/shaman" />
+
+    <ProgressBar
+        android:id="@+id/shamanHp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="120dp"
+        android:layout_height="8dp"
+        android:progressDrawable="@drawable/linear_warrior_hp_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.985" />
+
+    <ImageView
+        android:id="@+id/VenomExtract"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.752"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.975"
+        app:srcCompat="@drawable/button_layout" />
+
+
+
+    <TextView
+        android:id="@+id/VenomExtractText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Venom Extract"
+        android:textColor="#F6F4F4"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/VenomExtract"
+        app:layout_constraintEnd_toEndOf="@+id/VenomExtract"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="@+id/VenomExtract"
+        app:layout_constraintTop_toTopOf="@+id/VenomExtract"
+        app:layout_constraintVertical_bias="0.538" />
+
+    <ImageView
+        android:id="@+id/PoisonArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.752"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.827"
+        app:srcCompat="@drawable/button_layout" />
+
+    <TextView
+        android:id="@+id/PoisonArrowText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Poison Arrow"
+        android:textColor="#F6F4F4"
+        android:textSize="20dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/PoisonArrow"
+        app:layout_constraintEnd_toEndOf="@+id/PoisonArrow"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="@+id/PoisonArrow"
+        app:layout_constraintTop_toBottomOf="@+id/witchHp"
+        app:layout_constraintVertical_bias="0.837" />
+
+    <ImageView
+        android:id="@+id/SwordSlashCooldown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.622"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/background"
+        app:layout_constraintVertical_bias="0.043"
+        app:srcCompat="@drawable/cooldown_button" />
+
+    <TextView
+        android:id="@+id/SwordSlashCooldownText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12"
+        android:textColor="#F6F4F4"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.613"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.066" />
+
     <ImageView
         android:id="@+id/backgroundMenu"
         android:layout_width="1173dp"
@@ -272,31 +369,55 @@
         app:layout_constraintVertical_bias="0.258"
         app:srcCompat="@drawable/test_bg" />
 
+    <ImageView
+        android:id="@+id/YouWin"
+        android:layout_width="470dp"
+        android:layout_height="63dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.054"
+        app:srcCompat="@drawable/you_win" />
+
+    <ImageView
+        android:id="@+id/Paused"
+        android:layout_width="470dp"
+        android:layout_height="63dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/background"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.047"
+        app:srcCompat="@drawable/paused" />
+
     <Button
         android:id="@+id/btnOpenMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Go back to MainActivity"
+        android:text="Go back to main menu"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.377" />
+        app:layout_constraintVertical_bias="0.46" />
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="222dp"
-        android:layout_height="248dp"
-        app:layout_constraintBottom_toBottomOf="@+id/background"
-        app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintHorizontal_bias="0.023"
+        android:id="@+id/YouLose"
+        android:layout_width="470dp"
+        android:layout_height="63dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/background"
-        app:layout_constraintVertical_bias="0.392"
-        app:srcCompat="@drawable/death_ward_test1" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.045"
+        app:srcCompat="@drawable/you_lose" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

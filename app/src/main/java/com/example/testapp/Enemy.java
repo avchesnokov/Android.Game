@@ -5,11 +5,8 @@ public class Enemy extends Unit {
     public Enemy(String name, int health, int damage) {
         super(name, health, damage);
     }
-    boolean targetWarrior;
-    boolean targetWitch;
-    boolean targetShaman;
-    boolean skipFirstTick = false;
-    CountDownTimerExt enemyAttack = new CountDownTimerExt(Integer.MAX_VALUE, 10000, true) {
+
+    CountDownTimerExt enemyAttack = new CountDownTimerExt(Integer.MAX_VALUE, 5000, true) {
         @Override
         public void onTick(long millisUntilFinished) {
             if (skipFirstTick) {
@@ -23,6 +20,7 @@ public class Enemy extends Unit {
 
         }
     }.create();
+
 
     public void attackChooser(){
         //if (tester != null) {
